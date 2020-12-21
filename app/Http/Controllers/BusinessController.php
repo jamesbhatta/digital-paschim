@@ -201,7 +201,7 @@ class BusinessController extends Controller
             $business->services = $request->services;
             $business->keywords = $request->keywords;
             if ($request->profile_pic) {
-                if ($business->profile_pic != 'no_image.jpg' ) {
+                if ($business->profile_pic != 'no_image.jpg') {
                     Storage::disk('public_uploads')->delete($business->profile_pic);
                     Storage::disk('public_uploads')->delete($business->thumbnail);
                 }
@@ -209,7 +209,7 @@ class BusinessController extends Controller
                 $business->thumbnail =  $business->storeThumbnail($request->file('profile_pic'));
             }
             if ($request->cover_pic) {
-                if ($business->cover_pic != 'no_image.jpg' ) {
+                if ($business->cover_pic != 'no_image.jpg') {
                     Storage::disk('public_uploads')->delete($business->cover_pic);
                 }
                 $business->cover_pic = Storage::disk('public_uploads')->put('cover', $request->file('cover_pic'));
@@ -271,7 +271,6 @@ class BusinessController extends Controller
             // Storage::disk('public_uploads')->delete($business->cover_pic);
             // Storage::disk('public_uploads')->delete($business->thumbnail);
             DB::rollback();
-            return $business->profile_pic;
             $request->session()->flash('error', 'Something went wrong please check the form.');
         }
 
@@ -287,6 +286,7 @@ class BusinessController extends Controller
     public function destroy(Business $business, Request $request)
     {
         $business->delete();
+
         $request->session()->flash('success', 'Record has been moved to trash.');
         return redirect()->route('business.index');
     }
@@ -306,13 +306,14 @@ class BusinessController extends Controller
     public function hardDelete($id)
     {
         $business = Business::withTrashed()->find($id);
+
         Storage::disk('public_uploads')->delete($business->profile_pic);
         Storage::disk('public_uploads')->delete($business->cover_pic);
         Storage::disk('public_uploads')->delete($business->thumbnail);
+        
         $business->forceDelete();
 
-        $request = new Request();
-        $request = session()->flash('success', 'Business Record has been deleted permanently.');
+        session()->flash('success', 'Business Record has been deleted permanently.');
         return redirect()->route('trash');
     }
 }
