@@ -31,7 +31,7 @@ class ZoneRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:zones,name,'.$this->zone['id'],
+            'name' => 'required',
         ];
     }
 }

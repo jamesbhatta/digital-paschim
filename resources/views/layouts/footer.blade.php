@@ -6,7 +6,7 @@
 		</div>
 		<div class="ml-auto">
 			{{-- Developer <a href="http://manojbhatta.com.np">Manoj Bhatta</a> --}}
-			Powered By <a href="http://mohrain.com">Mohrain WebSoft Pvt. Ltd.</a>
+			{{-- Powered By <a href="http://mohrain.com">Mohrain WebSoft Pvt. Ltd.</a> --}}
 		</div>
 	</div>
 </footer>
