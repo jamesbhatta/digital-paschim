@@ -16,7 +16,12 @@ class Business extends Model
 	use SluggableScopeHelpers;
 	use SoftDeletes;
 	
-	protected $guarded = ['id'];
+    protected $guarded = ['id'];
+    
+    protected $casts = [
+        'metas' => 'array'
+    ];
+
 	/**
 	 * Return the sluggable configuration array for this model.
      *

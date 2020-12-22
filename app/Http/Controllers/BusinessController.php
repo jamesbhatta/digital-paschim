@@ -10,6 +10,7 @@ use App\BusinessHour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\BusinessRequest;
+use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Support\Facades\DB;
 
 class BusinessController extends Controller
@@ -48,6 +49,7 @@ class BusinessController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(BusinessRequest $request)
+    // public function store(Request $request)
     {
         DB::beginTransaction();
         try {
@@ -80,6 +82,19 @@ class BusinessController extends Controller
             if ($request->cover_pic) {
                 $business->cover_pic = Storage::disk('public_uploads')->put('cover', $request->file('cover_pic'));
             }
+
+            $metas = [];
+            if ($request->has('meta')) {
+                for ($i = 0; $i < count($request->meta['key']); $i++) {
+                    $key = $request->meta['key'][$i];
+                    $value = $request->meta['value'][$i];
+                    if (!is_null($key) && !is_null($value)) {
+                        $metas[$key] = $value;
+                    }
+                }
+            }
+            $business->metas = $metas;
+
             $business->save();
 
             $businessHours = array(
@@ -214,6 +229,19 @@ class BusinessController extends Controller
                 }
                 $business->cover_pic = Storage::disk('public_uploads')->put('cover', $request->file('cover_pic'));
             }
+
+            $metas = [];
+            if ($request->has('meta')) {
+                for ($i = 0; $i < count($request->meta['key']); $i++) {
+                    $key = $request->meta['key'][$i];
+                    $value = $request->meta['value'][$i];
+                    if (!is_null($key) && !is_null($value)) {
+                        $metas[$key] = $value;
+                    }
+                }
+                $business->metas = $metas;
+            }
+
             $business->save();
 
             BusinessHour::where('business_id', $business->id)->delete();
@@ -310,7 +338,7 @@ class BusinessController extends Controller
         Storage::disk('public_uploads')->delete($business->profile_pic);
         Storage::disk('public_uploads')->delete($business->cover_pic);
         Storage::disk('public_uploads')->delete($business->thumbnail);
-        
+
         $business->forceDelete();
 
         session()->flash('success', 'Business Record has been deleted permanently.');
