@@ -89,7 +89,7 @@
                             <select name="city_id" class="form-control rounded-0 {{ errorClass('city_id') }}" id="district">
                                 <option></option>
                                 @foreach($cities as $city)
-                                <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }} @if($city->name == 'Ghodighodi') @endif>{{ $city->name }}</option>
+                                <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }} @if($city->name == 'Ghodighodi') selected @endif>{{ $city->name }}</option>
                                 @endforeach
                             </select>
                             @invalid('city_id')
