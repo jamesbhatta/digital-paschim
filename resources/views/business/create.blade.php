@@ -128,7 +128,7 @@
                     <div class="col-md-4">
                         <div class="md-form">
                             <i class="far fa-envelope prefix"></i>
-                            <label for="">Email *</label>
+                            <label for="">Email</label>
                             <input type="email" name="email" class="form-control {{ errorClass('email') }}" value="{{ old('email') }}" placeholder="mailto@email.com">
                             <small class="form-text text-muted">Business E-mail.</small>
                             @invalid('email')
