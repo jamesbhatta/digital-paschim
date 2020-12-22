@@ -313,10 +313,10 @@
             <div class="col-md-6">
                 @for($i = 0; $i < 5; $i++) <div class="row mb-4">
                     <div class="col-md-6">
-                        <input type="text" name="meta[key][]" class="form-control" value="@if($i == 0) IEMIS CODE @endif @if($i == 1) प्र अ को नाम @endif @if($i == 2) Type @endif" placeholder="key">
+                        <input type="text" name="meta[key][]" class="form-control" value="@if($i == 0) IEMIS CODE @endif @if($i == 1) प्र अ को नाम @endif @if($i == 2) विव्यसको अध्क्षयको नाम @endif @if($i == 3) Type @endif" placeholder="key">
                     </div>
                     <div class="col-md-6">
-                        <input type="text" name="meta[value][]" class="form-control" value="@if($i == 2) Community School @endif" placeholder="value">
+                        <input type="text" name="meta[value][]" class="form-control" value="@if($i == 3) Community School @endif" placeholder="value">
                     </div>
             </div>
             @endfor
