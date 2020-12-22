@@ -89,7 +89,7 @@
                             <select name="city_id" class="form-control rounded-0 {{ errorClass('city_id') }}" id="district">
                                 <option></option>
                                 @foreach($cities as $city)
-                                <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                                <option value="{{ $city->id }}" {{ old('city_id') == $city->id ? 'selected' : '' }} @if($city->name == 'Ghodighodi') @endif>{{ $city->name }}</option>
                                 @endforeach
                             </select>
                             @invalid('city_id')
@@ -313,7 +313,7 @@
             <div class="col-md-6">
                 @for($i = 0; $i < 5; $i++) <div class="row mb-4">
                     <div class="col-md-6">
-                        <input type="text" name="meta[key][]" class="form-control" placeholder="key">
+                        <input type="text" name="meta[key][]" class="form-control" value="@if($i == 0) IEMIS CODE @endif @if($i == 1) प्र अ को नाम @endif" placeholder="key">
                     </div>
                     <div class="col-md-6">
                         <input type="text" name="meta[value][]" class="form-control" placeholder="value">
