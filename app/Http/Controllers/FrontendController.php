@@ -108,16 +108,15 @@ class FrontendController extends Controller
 		}
 
 		if ($keyword) {
-			if($businesses->where('name', 'like', '%'.$keyword.'%')->count() > 0){
-				$businesses = $businesses->where('name', 'like', '%'.$keyword.'%');
-			}
-			else{
-				$businesses = $businesses->Where('keywords', 'like', '%'.$keyword.'%');
+			if ($businesses->where('name', 'like', '%' . $keyword . '%')->count() > 0) {
+				$businesses = $businesses->where('name', 'like', '%' . $keyword . '%');
+			} else {
+				$businesses = $businesses->Where('keywords', 'like', '%' . $keyword . '%');
 			}
 		}
 
 		$businesses = $businesses->orderBy('account_type', 'desc')
-		->with(['category', 'city', 'business_hours'])->paginate(15);
+			->with(['category', 'city', 'business_hours'])->paginate(15);
 
 		$categories = Category::orderBy('name', 'asc')->get();
 
@@ -127,6 +126,8 @@ class FrontendController extends Controller
 	public function viewBusiness($slug)
 	{
 		$business = Business::where('slug', $slug)->with(['city', 'business_hours'])->first();
+		abort_if(!$business, 404);
+
 		$categories = Category::orderBy('name', 'asc')->get();
 		$similarBusinesses = Business::orderBy('account_type', 'desc')->where('category_id', $business->category_id)->where('city_id', $business->city_id)->where('id', '!=', $business->id)->with('city')->take(15)->get();
 		return view('frontend.show', compact(['business', 'categories', 'similarBusinesses']));
