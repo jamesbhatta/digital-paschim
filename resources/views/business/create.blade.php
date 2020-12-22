@@ -172,49 +172,49 @@
                                 <tr>
                                     <th>Sunday</th>
                                     <td class="">
-                                        <input type="time" name="sun_open_time" class="form-control form-control-sm" value="{{ old('sun_open_time') }}">
+                                        <input type="time" name="sun_open_time" class="form-control form-control-sm" value="{{ old('sun_open_time', \Carbon\Carbon::parse('10:00')->format('h:i') ) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="sun_close_time" class="form-control form-control-sm" value="{{ old('sun_close_time') }}">
+                                        <input type="time" name="sun_close_time" class="form-control form-control-sm" value="{{ old('sun_close_time', \Carbon\Carbon::parse('16:00')->format('h:i') ) }}">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Monday</th>
                                     <td>
-                                        <input type="time" name="mon_open_time" class="form-control form-control-sm" value="{{ old('mon_open_time') }}">
+                                        <input type="time" name="mon_open_time" class="form-control form-control-sm" value="{{ old('mon_open_time', \Carbon\Carbon::parse('10:00')->format('h:i')) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="mon_close_time" class="form-control form-control-sm" value="{{ old('mon_close_time') }}">
+                                        <input type="time" name="mon_close_time" class="form-control form-control-sm" value="{{ old('mon_close_time', \Carbon\Carbon::parse('16:00')->format('h:i') ) }}">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Tuesday</th>
                                     <td>
-                                        <input type="time" name="tues_open_time" class="form-control form-control-sm" value="{{ old('tues_open_time') }}">
+                                        <input type="time" name="tues_open_time" class="form-control form-control-sm" value="{{ old('tues_open_time', \Carbon\Carbon::parse('10:00')->format('h:i')) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="tues_close_time" class="form-control form-control-sm" value="{{ old('tues_close_time') }}">
+                                        <input type="time" name="tues_close_time" class="form-control form-control-sm" value="{{ old('tues_close_time', \Carbon\Carbon::parse('16:00')->format('h:i') ) }}">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Wednesday</th>
                                     <td>
-                                        <input type="time" name="wednes_open_time" class="form-control form-control-sm" value="{{ old('wednes_open_time') }}">
+                                        <input type="time" name="wednes_open_time" class="form-control form-control-sm" value="{{ old('wednes_open_time', \Carbon\Carbon::parse('10:00')->format('h:i')) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="wednes_close_time" class="form-control form-control-sm" value="{{ old('wednes_close_time') }}">
+                                        <input type="time" name="wednes_close_time" class="form-control form-control-sm" value="{{ old('wednes_close_time', \Carbon\Carbon::parse('16:00')->format('h:i') ) }}">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Thursday</th>
                                     <td>
-                                        <input type="time" name="thurs_open_time" class="form-control form-control-sm" value="{{ old('thurs_open_time') }}">
+                                        <input type="time" name="thurs_open_time" class="form-control form-control-sm" value="{{ old('thurs_open_time', \Carbon\Carbon::parse('10:00')->format('h:i')) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="thurs_close_time" class="form-control form-control-sm" value="{{ old('thurs_close_time') }}">
+                                        <input type="time" name="thurs_close_time" class="form-control form-control-sm" value="{{ old('thurs_close_time', \Carbon\Carbon::parse('16:00')->format('h:i') ) }}">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Friday</th>
                                     <td>
-                                        <input type="time" name="fri_open_time" class="form-control form-control-sm" value="{{ old('fri_open_time') }}">
+                                        <input type="time" name="fri_open_time" class="form-control form-control-sm" value="{{ old('fri_open_time', \Carbon\Carbon::parse('10:00')->format('h:i')) }}">
                                         <span class="mx-4">To</span>
-                                        <input type="time" name="fri_close_time" class="form-control form-control-sm" value="{{ old('fri_close_time') }}">
+                                        <input type="time" name="fri_close_time" class="form-control form-control-sm" value="{{ old('fri_close_time', \Carbon\Carbon::parse('16:00')->format('h:i')) }}">
                                     </td>
                                 </tr>
                                 <tr>
@@ -231,8 +231,8 @@
                     </div>
                 </div>
                 {{-- End of Business Hours Card --}}
-			</div>
-			
+            </div>
+
             <div class="col-md-6">
                 {{-- Social Card --}}
                 <div class="card border-0 mb-4">
@@ -311,69 +311,68 @@
                 {{-- End of Keywords Card --}}
             </div>
             <div class="col-md-6">
-				@for($i = 0; $i < 5; $i++)
-					<div class="row mb-4">
-						<div class="col-md-6">
-							<input type="text" name="meta[key][]" class="form-control" placeholder="key">
-						</div>
-						<div class="col-md-6">
-							<input type="text" name="meta[value][]" class="form-control" placeholder="value">
-						</div>
-					</div>
-				@endfor
-			</div>
-        </div>
-
-
-        {{-- Pic Upload Card --}}
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="card mx-auto" style="max-width: 300px;">
-                    <div class="view overlay">
-                        <img class="card-img-top" id="profile_pic_preview" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                            <input type="file" name="profile_pic" id="profile_pic" hidden>
-                        </a>
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Profile Picture</h4>
-                        <p class="card-text">Applies to both Free and Premium accounts.</p>
-                        <label for="profile_pic" class="btn btn-primary">Upload</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 premium-feature">
-                <div class="card mx-auto" style="max-width: 300px;">
-                    <div class="view overlay">
-                        <img class="card-img-top" id="cover_pic_preview" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-                        <a href="#!">
-                            <div class="mask rgba-white-slight"></div>
-                            <input type="file" name="cover_pic" id="cover_pic" hidden>
-                        </a>
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Cover Picture</h4>
-                        <p class="card-text">Only shown in premium accounts.</p>
-                        <label for="cover_pic" class="btn btn-primary">Upload</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- End of Pic Upload Card --}}
-
-        {{-- Form Buttons --}}
-        <div class="form-group">
-            <div class="card card-body">
-                <div class="row">
+                @for($i = 0; $i < 5; $i++) <div class="row mb-4">
                     <div class="col-md-6">
-                        <button class="btn btn-success btn-block">Register</button>
+                        <input type="text" name="meta[key][]" class="form-control" placeholder="key">
                     </div>
-                </div>
+                    <div class="col-md-6">
+                        <input type="text" name="meta[value][]" class="form-control" placeholder="value">
+                    </div>
+            </div>
+            @endfor
+        </div>
+</div>
+
+
+{{-- Pic Upload Card --}}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card mx-auto" style="max-width: 300px;">
+            <div class="view overlay">
+                <img class="card-img-top" id="profile_pic_preview" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                    <input type="file" name="profile_pic" id="profile_pic" hidden>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Profile Picture</h4>
+                <p class="card-text">Applies to both Free and Premium accounts.</p>
+                <label for="profile_pic" class="btn btn-primary">Upload</label>
             </div>
         </div>
-    </form>
+    </div>
+
+    <div class="col-md-6 premium-feature">
+        <div class="card mx-auto" style="max-width: 300px;">
+            <div class="view overlay">
+                <img class="card-img-top" id="cover_pic_preview" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                    <input type="file" name="cover_pic" id="cover_pic" hidden>
+                </a>
+            </div>
+            <div class="card-body text-center">
+                <h4 class="card-title">Cover Picture</h4>
+                <p class="card-text">Only shown in premium accounts.</p>
+                <label for="cover_pic" class="btn btn-primary">Upload</label>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- End of Pic Upload Card --}}
+
+{{-- Form Buttons --}}
+<div class="form-group">
+    <div class="card card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-success btn-block">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
 </div>
 
 @push('scripts')
