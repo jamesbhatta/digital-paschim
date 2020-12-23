@@ -13,6 +13,10 @@
     @include('partials.success')
     @include('partials.danger')
 
+    <div class="white p-2 mb-2">
+        <a class="btn btn-sm btn-info text-capitalize" href="{{ route('business.view', $business->slug) }}" target="_blank">View Profile</a>
+    </div>
+
     <form action="{{ route('business.update', $business->id) }}" enctype="multipart/form-data" class="form mdb-color-text" method="POST">
         @csrf
         @method('put')

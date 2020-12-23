@@ -84,6 +84,9 @@
 									<span class="badge badge-light font-weight-light z-depth-0">
 										{{ $business->category->name }}
 									</span>
+									@auth
+										<a href="{{ route('business.edit', $business) }}">Edit</a>
+									@endauth
 									<p class="card-text">
 										<div class="">
 											<i class="fa fa-map-marker-alt label text-orange"></i>{{ $business->address }} , {{ $business->city->name }}
