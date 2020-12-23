@@ -31,7 +31,7 @@
                                 @endif
                                 <div class="media-body card-body item-description">
                                     <h1 class="h2 my-0 text-orange font-weight-bolder">{{ $business->name }}</h1>
-                                    <small class="h6 text-orange">{{ $business->address }} </small>
+                                    <small class="h6 text-orange">{{ $business->address }} , {{ $business->city->name }}</small>
                                     <div class="item">
                                         <span class="label"><i class="fa fa-phone text-orange"></i> Phone </span>
                                         {{ $business->contact_one }}
