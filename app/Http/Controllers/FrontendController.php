@@ -120,6 +120,8 @@ class FrontendController extends Controller
 
 		$categories = Category::orderBy('name', 'asc')->get();
 
+		$businesses->appends(request()->except(['page','_token']));
+
 		return view('frontend.search', compact(['businesses', 'keyword', 'city', 'city_id', 'category', 'category_id', 'categories']));
 	}
 
