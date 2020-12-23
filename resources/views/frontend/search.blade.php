@@ -47,7 +47,7 @@
 			<div class="">
 				<div class="white border p-3 mb-3">
 					<div class="">
-						Showing Results for: &nbsp;
+						{{ $businesses->total() }} results found for: &nbsp;
 						<span class="font-weight-bolder">
 							<i class="fa fa-map-marker-alt mr-2"></i>{{ $city->name ?? 'All Cities' }}
 						</span>
