@@ -73,7 +73,7 @@
 								@if ($business->thumbnail != 'no_image.jpg')
 								<img src="{{ asset('uploads/'.$business->thumbnail) }}" class="align-self-center mr-3 img-fluid">
 								@else
-								<img src="https://dummyimage.com/500x350/f0f0f0/746f75.png&text=No+Image" class="align-self-center mr-3 img-fluid ">
+								<img src="https://dummyimage.com/500x350/f0f0f0/746f75.png&text=Ghodaghodi+YP" class="align-self-center mr-3 img-fluid ">
 								@endif
 							</div>
 							<div class="col-md-7 col-sm-12">

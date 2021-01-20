@@ -25,7 +25,7 @@
                         <div class="card my-4 mdb-color-text p-2 z-depth-0 rounded-0">
                             <div class="media">
                                 @if ($business->profile_pic == "no_image.jpg")
-                                <img class="align-self-center mr-3" src="https://dummyimage.com/600x400/f0f0f0/746f75.png&text=No+Image" alt="{{ $business->name }}" style="max-width: 300px; height: auto">
+                                <img class="align-self-center mr-3" src="https://dummyimage.com/600x400/f0f0f0/746f75.png&text=Ghodaghodi+YP" alt="{{ $business->name }}" style="max-width: 300px; height: auto">
                                 @else
                                 <img class="align-self-center mr-3" src="{{ asset('uploads/'. $business->profile_pic) }}" alt="{{ $business->name }}" style="max-width: 300px; height: auto">
                                 @endif
